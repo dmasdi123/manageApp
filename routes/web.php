@@ -1,9 +1,12 @@
 <?php
 
-use App\Http\Controllers\ProjectController;
-use App\Http\Controllers\ReportController;
-use App\Http\Controllers\RevisionController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\ReportController;
+use App\Http\Controllers\ProjectController;
+use App\Http\Controllers\RevisionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,6 +23,12 @@ Route::get('/', function () {
     return view('dashboard.login.index');
 });
 
+Route::post('/login', [LoginController::class, 'authenticate']);
+// Route::post('/login', 'App\Http\Controllers\LoginController@authenticate');
+
+Route::resource('/user', UserController::class);
+
+Route::get('/homepage', [HomeController::class, 'index']);
 Route::resource('/project', ProjectController::class);
 Route::resource('/revision', RevisionController::class);
 Route::resource('/report', ReportController::class);
