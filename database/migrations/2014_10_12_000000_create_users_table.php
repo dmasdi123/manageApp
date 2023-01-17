@@ -18,8 +18,8 @@ return new class extends Migration
             $table->string('email');
             $table->string('password');
             $table->string('name');
-            $table->integer('notelp')->nullable();
-            $table->string('role')->nullable();
+            $table->integer('notelp');
+            $table->string('role');
             $table->timestamp('email_verified_at')->nullable();
             $table->rememberToken();
             $table->timestamps();

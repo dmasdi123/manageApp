@@ -24,6 +24,7 @@ Route::get('/', function () {
 });
 
 Route::post('/login', [LoginController::class, 'authenticate']);
+Route::post('/logout', [LoginController::class, 'logout']);
 // Route::post('/login', 'App\Http\Controllers\LoginController@authenticate');
 
 Route::resource('/user', UserController::class);
