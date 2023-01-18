@@ -15,7 +15,7 @@ class RevisionController extends Controller
     public function index()
     {
         return view('dashboard.revision.index', [
-            'title' => 'Dashboard Revision'
+            'title' => 'Dashboard Revisions'
         ]);
     }
 

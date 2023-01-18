@@ -2,6 +2,12 @@
 @section('container')
 <div class="row">
   <div class="col">
+      <a href="#" class="btn btn-success"><i class="fas fa-plus"></i> Add Project</a>
+  </div>
+</div>
+<br>
+<div class="row">
+  <div class="col">
     <!-- TABLE -->
     <div class="card">
       <div class="card-header border-transparent">
@@ -39,8 +45,8 @@
               <td>Kevin</td>
               <td>22-07-2023</td>
               <td>
-                <a href="#" class="btn btn-info btn-sm">View</a>
-                <a href="#" class="btn btn-danger btn-sm">Delete</a>
+                <a href="#" class="btn btn-info btn-sm"><i class="fas fa-eye"></i> View</a>
+                <a href="#" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i> Delete</a>
               </td>
             </tr>
             <tr>
@@ -52,8 +58,8 @@
               <td>Adrian</td>
               <td>22-07-2023</td>
               <td>
-                <a href="#" class="btn btn-info btn-sm">View</a>
-                <a href="#" class="btn btn-danger btn-sm">Delete</a>
+                <a href="#" class="btn btn-info btn-sm"><i class="fas fa-eye"></i> View</a>
+                <a href="#" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i> Delete</a>
               </td>
             </tr>
             </tbody>
@@ -113,8 +119,8 @@
               <td>Kevin</td>
               <td>22-07-2023</td>
               <td>
-                <a href="#" class="btn btn-info btn-sm">View</a>
-                <a href="#" class="btn btn-danger btn-sm">Delete</a>
+                <a href="#" class="btn btn-info btn-sm"><i class="fas fa-eye"></i> View</a>
+                <a href="#" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i> Delete</a>
               </td>
             </tr>
             <tr>
@@ -127,8 +133,8 @@
               <td>Adrian</td>
               <td>22-07-2023</td>
               <td>
-                <a href="#" class="btn btn-info btn-sm">View</a>
-                <a href="#" class="btn btn-danger btn-sm">Delete</a>
+                <a href="#" class="btn btn-info btn-sm"><i class="fas fa-eye"></i> View</a>
+                <a href="#" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i> Delete</a>
               </td>
             </tr>
             </tbody>
@@ -188,8 +194,8 @@
               <td>Kevin</td>
               <td>22-07-2023</td>
               <td>
-                <a href="#" class="btn btn-info btn-sm">View</a>
-                <a href="#" class="btn btn-danger btn-sm">Delete</a>
+                <a href="#" class="btn btn-info btn-sm"><i class="fas fa-eye"></i> View</a>
+                <a href="#" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i> Delete</a>
               </td>
             </tr>
             <tr>
@@ -202,8 +208,8 @@
               <td>Adrian</td>
               <td>22-07-2023</td>
               <td>
-                <a href="#" class="btn btn-info btn-sm">View</a>
-                <a href="#" class="btn btn-danger btn-sm">Delete</a>
+                <a href="#" class="btn btn-info btn-sm"><i class="fas fa-eye"></i> View</a>
+                <a href="#" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i> Delete</a>
               </td>
             </tr>
             </tbody>

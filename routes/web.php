@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CategoriesController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
@@ -33,3 +34,5 @@ Route::get('/homepage', [HomeController::class, 'index']);
 Route::resource('/project', ProjectController::class);
 Route::resource('/revision', RevisionController::class);
 Route::resource('/report', ReportController::class);
+
+Route::resource('/categories', CategoriesController::class);

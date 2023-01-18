@@ -15,7 +15,7 @@ class ProjectController extends Controller
     public function index()
     {
         return view('dashboard.project.index', [
-            'title' => 'Dashboard Project'
+            'title' => 'Dashboard Projects'
         ]);
     }
 

@@ -15,7 +15,7 @@ class ReportController extends Controller
     public function index()
     {
         return view('dashboard.report.index', [
-            'title' => 'Dashboard Report'
+            'title' => 'Dashboard Reports'
         ]);
     }
 

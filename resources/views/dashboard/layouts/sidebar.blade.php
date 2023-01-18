@@ -23,7 +23,7 @@
           <li class="nav-header">Task</li>
           <li class="nav-item">
             <a href="/project" class="nav-link">
-              <i class="nav-icon fas fa-calendar-alt"></i>
+              <i class="nav-icon fas fa-copy"></i>
               <p>
                 Projects
               </p>
@@ -31,7 +31,7 @@
           </li>
           <li class="nav-item">
             <a href="/revision" class="nav-link">
-              <i class="nav-icon far fa-image"></i>
+              <i class="nav-icon fas fa-copy"></i>
               <p>
                 Revisions
               </p>
@@ -39,7 +39,7 @@
           </li>
           <li class="nav-item">
             <a href="/report" class="nav-link">
-              <i class="nav-icon fas fa-columns"></i>
+              <i class="nav-icon fas fa-copy"></i>
               <p>
                 Reports
               </p>
@@ -48,7 +48,7 @@
           <li class="nav-header">Others</li>
           <li class="nav-item">
             <a href="/categories" class="nav-link">
-              <i class="nav-icon fas fa-columns"></i>
+              <i class="nav-icon fas fa-table"></i>
               <p>
                 Categories
               </p>
@@ -56,9 +56,17 @@
           </li>
           <li class="nav-item">
             <a href="/user" class="nav-link">
-              <i class="nav-icon fas fa-columns"></i>
+              <i class="nav-icon fas fa-users"></i>
               <p>
                 Users
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="/logout" class="nav-link">
+              <i class="nav-icon fas fa-times"></i>
+              <p>
+                Logout
               </p>
             </a>
           </li>
