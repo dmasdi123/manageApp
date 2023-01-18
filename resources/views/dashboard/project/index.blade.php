@@ -1,62 +1,218 @@
 @extends('dashboard.layouts.main')
 @section('container')
-          <div class="col-12 col-sm-6 col-md-3">
-            <div class="info-box">
-              <span class="info-box-icon bg-info elevation-1"><i class="fas fa-cog"></i></span>
+<div class="row">
+  <div class="col">
+    <!-- TABLE -->
+    <div class="card">
+      <div class="card-header border-transparent">
+        <h3 class="card-title">Waiting List</h3>
 
-              <div class="info-box-content">
-                <span class="info-box-text">CPU Traffic</span>
-                <span class="info-box-number">
-                  10
-                  <small>%</small>
-                </span>
-              </div>
-              <!-- /.info-box-content -->
-            </div>
-            <!-- /.info-box -->
-          </div>
-          <!-- /.col -->
-          <div class="col-12 col-sm-6 col-md-3">
-            <div class="info-box mb-3">
-              <span class="info-box-icon bg-danger elevation-1"><i class="fas fa-thumbs-up"></i></span>
+        <div class="card-tools">
+          <button type="button" class="btn btn-tool" data-card-widget="collapse">
+            <i class="fas fa-minus"></i>
+          </button>
+        </div>
+      </div>
+      <!-- /.card-header -->
+      <div class="card-body p-0">
+        <div class="table-responsive">
+          <table class="table m-0">
+            <thead>
+            <tr>
+              <th>No</th>
+              <th>Name</th>
+              <th>Category</th>
+              <th>Description</th>
+              <th>Status</th>
+              <th>Web Dev</th>
+              <th>Created at</th>
+              <th>Action</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td>1.</td>
+              <td>Batikku.store</td>
+              <td>Info</td>
+              <td>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</td>
+              <td><span class="badge badge-warning">Pending</span></td>
+              <td>Kevin</td>
+              <td>22-07-2023</td>
+              <td>
+                <button>View</button>
+                <button>Delete</button>
+              </td>
+            </tr>
+            <tr>
+              <td>2.</td>
+              <td>Jeansku.store</td>
+              <td>Info Pro</td>
+              <td>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</td>
+              <td><span class="badge badge-warning">Pending</span></td>
+              <td>Adrian</td>
+              <td>22-07-2023</td>
+              <td>
+                <button>View</button>
+                <button>Delete</button>
+              </td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+        <!-- /.table-responsive -->
+      </div>
+      <!-- /.card-body -->
+      <div class="card-footer clearfix">
+        <br>
+      </div>
+      <!-- /.card-footer -->
+    </div>
+    <!-- /.card -->
+</div>
+</div>
+<br>
+<br>
+<div class="row">
+  <div class="col">
+    <!-- TABLE -->
+    <div class="card">
+      <div class="card-header border-transparent">
+        <h3 class="card-title">In Progress</h3>
 
-              <div class="info-box-content">
-                <span class="info-box-text">Likes</span>
-                <span class="info-box-number">41,410</span>
-              </div>
-              <!-- /.info-box-content -->
-            </div>
-            <!-- /.info-box -->
-          </div>
-          <!-- /.col -->
+        <div class="card-tools">
+          <button type="button" class="btn btn-tool" data-card-widget="collapse">
+            <i class="fas fa-minus"></i>
+          </button>
+        </div>
+      </div>
+      <!-- /.card-header -->
+      <div class="card-body p-0">
+        <div class="table-responsive">
+          <table class="table m-0">
+            <thead>
+            <tr>
+              <th>No</th>
+              <th>Name</th>
+              <th>Category</th>
+              <th>Description</th>
+              <th>Status</th>
+              <th>Web Dev</th>
+              <th>Created at</th>
+              <th>Action</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td>1.</td>
+              <td>Batikku.store</td>
+              <td>Info</td>
+              <td>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</td>
+              <td><span class="badge badge-info">In Progress</span></td>
+              <td>Kevin</td>
+              <td>22-07-2023</td>
+              <td>
+                <button>View</button>
+                <button>Delete</button>
+              </td>
+            </tr>
+            <tr>
+              <td>2.</td>
+              <td>Jeansku.store</td>
+              <td>Info Pro</td>
+              <td>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</td>
+              <td><span class="badge badge-info">In Progress</span></td>
+              <td>Adrian</td>
+              <td>22-07-2023</td>
+              <td>
+                <button>View</button>
+                <button>Delete</button>
+              </td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+        <!-- /.table-responsive -->
+      </div>
+      <!-- /.card-body -->
+      <div class="card-footer clearfix">
+        <br>
+      </div>
+      <!-- /.card-footer -->
+    </div>
+    <!-- /.card -->
+  </div>
+</div>
+<br>
+<br>
+<div class="row">
+  <div class="col">
+    <!-- TABLE -->
+    <div class="card">
+      <div class="card-header border-transparent">
+        <h3 class="card-title">Complete</h3>
 
-          <!-- fix for small devices only -->
-          <div class="clearfix hidden-md-up"></div>
-
-          <div class="col-12 col-sm-6 col-md-3">
-            <div class="info-box mb-3">
-              <span class="info-box-icon bg-success elevation-1"><i class="fas fa-shopping-cart"></i></span>
-
-              <div class="info-box-content">
-                <span class="info-box-text">Sales</span>
-                <span class="info-box-number">760</span>
-              </div>
-              <!-- /.info-box-content -->
-            </div>
-            <!-- /.info-box -->
-          </div>
-          <!-- /.col -->
-          <div class="col-12 col-sm-6 col-md-3">
-            <div class="info-box mb-3">
-              <span class="info-box-icon bg-warning elevation-1"><i class="fas fa-users"></i></span>
-
-              <div class="info-box-content">
-                <span class="info-box-text">New Members</span>
-                <span class="info-box-number">2,000</span>
-              </div>
-              <!-- /.info-box-content -->
-            </div>
-            <!-- /.info-box -->
-          </div>
-          <!-- /.col -->
+        <div class="card-tools">
+          <button type="button" class="btn btn-tool" data-card-widget="collapse">
+            <i class="fas fa-minus"></i>
+          </button>
+        </div>
+      </div>
+      <!-- /.card-header -->
+      <div class="card-body p-0">
+        <div class="table-responsive">
+          <table class="table m-0">
+            <thead>
+            <tr>
+              <th>No</th>
+              <th>Name</th>
+              <th>Category</th>
+              <th>Description</th>
+              <th>Status</th>
+              <th>Web Dev</th>
+              <th>Created at</th>
+              <th>Action</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td>1.</td>
+              <td>Batikku.store</td>
+              <td>Info</td>
+              <td>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</td>
+              <td><span class="badge badge-success">Complete</span></td>
+              <td>Kevin</td>
+              <td>22-07-2023</td>
+              <td>
+                <button>View</button>
+                <button>Delete</button>
+              </td>
+            </tr>
+            <tr>
+              <td>2.</td>
+              <td>Jeansku.store</td>
+              <td>Info Pro</td>
+              <td>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</td>
+              <td><span class="badge badge-success">Complete</span></td>
+              <td>Adrian</td>
+              <td>22-07-2023</td>
+              <td>
+                <button>View</button>
+                <button>Delete</button>
+              </td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+        <!-- /.table-responsive -->
+      </div>
+      <!-- /.card-body -->
+      <div class="card-footer clearfix">
+        <br>
+      </div>
+      <!-- /.card-footer -->
+    </div>
+    <!-- /.card -->
+  </div>
+</div>
+  
 @endsection
