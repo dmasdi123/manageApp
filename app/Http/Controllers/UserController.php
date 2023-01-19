@@ -104,7 +104,7 @@ class UserController extends Controller
         $validatedData = $request->validate($rules);
         User::where('id', $user->id)
             ->update($validatedData);
-        return redirect('/user');
+        return redirect('/user')->with('success', 'User Updated Successfully');
     }
 
     /**
@@ -116,6 +116,6 @@ class UserController extends Controller
     public function destroy(User $user)
     {
         User::destroy($user->id);
-        return redirect('/user')->with('success', 'User Berhasil Dihapus');
+        return redirect('/user');
     }
 }
