@@ -9,5 +9,15 @@
         <a class="nav-link">Staff Administrator</a>
       </li>
     </ul>
+
+    <!-- Right navbar links -->
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item">
+          <form action="/logout" method="POST">
+            @csrf
+            <button class="nav-link bg-dark border-0" type="submiti c"><i class="fa-regular fa-right-to-bracket"></i> Logout</button>
+          </form>
+      </li>
+    </ul>
   </nav>
   <!-- /.navbar -->
