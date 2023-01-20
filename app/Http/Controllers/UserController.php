@@ -17,7 +17,7 @@ class UserController extends Controller
         return view('dashboard.user.index', [
             'title' => 'Dashboard Users',
             'admininfo' => User::where('role', 'Staff Administrator')->get(),
-            'webdevinfo' => User::where('role', 'Web Developer')
+            'webdevinfo' => User::where('role', 'Web Developer')->get()
         ]);
     }
 

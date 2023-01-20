@@ -11,7 +11,7 @@
       <!-- Sidebar user panel (optional) -->
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
         <div class="info">
-          <a class="d-block">Febrian Dimas</a>
+          <a class="d-block">{{ auth()->user()->name }}</a>
         </div>
       </div>
 

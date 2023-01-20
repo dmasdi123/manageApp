@@ -45,30 +45,24 @@
             </tr>
             </thead>
             <tbody>
-            <tr>
-              <td>1.</td>
-              <td>hello@gmail.com</td>
-              <td>pass123</td>
-              <td>Kevin</td>
-              <td>621234567</td>
-              <td>22-07-2023</td>
-              <td>
-                <a href="#" class="btn btn-info btn-sm"><i class="fas fa-eye"></i> View</a>
-                <a href="#" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i> Delete</a>
-              </td>
-            </tr>
-            <tr>
-                <td>1.</td>
-                <td>hello@gmail.com</td>
-                <td>pass123</td>
-                <td>Kevin</td>
-                <td>621234567</td>
-                <td>22-07-2023</td>
+              @foreach ($webdevinfo as $devinfo)
+              <tr>
+                <td>{{ $loop->iteration }}</td>
+                <td>{{ $devinfo->email }}</td>
+                <td>{{ $devinfo->password }}</td>
+                <td>{{ $devinfo->name }}</td>
+                <td>{{ $devinfo->notelp }}</td>
+                <td>{{ $devinfo->created_at->diffForHumans() }}</td>
                 <td>
-                  <a href="#" class="btn btn-info btn-sm"><i class="fas fa-eye"></i> View</a>
-                  <a href="#" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i> Delete</a>
+                  <a href="/user/{{ $devinfo->id }}/edit" class="btn btn-info btn-sm"><i class="fas fa-eye"></i> View</a>
+                  <form action="/user/{{ $devinfo->id }}" method="POST" class="d-inline">
+                    @method('delete')
+                    @csrf
+                    <button type="submit" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i> Delete</button>
+                  </form>
                 </td>
               </tr>
+              @endforeach
             </tbody>
           </table>
         </div>

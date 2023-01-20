@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use App\Models\Categories;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class CategoriesController extends Controller
 {
@@ -15,7 +17,8 @@ class CategoriesController extends Controller
     public function index()
     {
         return view('dashboard.category.index', [
-            'title' => 'Dashboard Categories'
+            'title' => 'Dashboard Categories',
+            'categories' => Categories::all()
         ]);
     }
 
@@ -26,7 +29,9 @@ class CategoriesController extends Controller
      */
     public function create()
     {
-        //
+        return view('dashboard.category.create', [
+            'title' => 'Category Form'
+        ]);
     }
 
     /**
@@ -37,7 +42,14 @@ class CategoriesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validatedData = $request->validate([
+            'user_id' => 'required',
+            'name_category' => 'required',
+            'desc_category' => 'required'
+        ]);
+
+        Categories::create($validatedData);
+        return redirect('/categories')->with('success', 'Category Successfully Created');
     }
 
     /**
@@ -46,7 +58,7 @@ class CategoriesController extends Controller
      * @param  \App\Models\Categories  $categories
      * @return \Illuminate\Http\Response
      */
-    public function show(Categories $categories)
+    public function show(Categories $category)
     {
         //
     }
@@ -57,9 +69,12 @@ class CategoriesController extends Controller
      * @param  \App\Models\Categories  $categories
      * @return \Illuminate\Http\Response
      */
-    public function edit(Categories $categories)
+    public function edit(Categories $category)
     {
-        //
+        return view('dashboard.category.edit', [
+            'title' => 'Edit Categories Form',
+            'category' => $category
+        ]);
     }
 
     /**
@@ -69,9 +84,18 @@ class CategoriesController extends Controller
      * @param  \App\Models\Categories  $categories
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Categories $categories)
+    public function update(Request $request, Categories $category)
     {
-        //
+        $rules = [
+            'user_id' => 'required',
+            'email' => 'required',
+            'password' => 'required'
+        ];
+
+        $validatedData = $request->validate($rules);
+        User::where('id', $category->id)
+            ->update($validatedData);
+        return redirect('/user')->with('success', 'User Updated Successfully');
     }
 
     /**
@@ -80,7 +104,7 @@ class CategoriesController extends Controller
      * @param  \App\Models\Categories  $categories
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Categories $categories)
+    public function destroy(Categories $category)
     {
         //
     }
