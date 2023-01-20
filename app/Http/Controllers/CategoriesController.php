@@ -106,6 +106,7 @@ class CategoriesController extends Controller
      */
     public function destroy(Categories $category)
     {
-        //
+        Categories::destroy($category->id);
+        return redirect('/categories')->with('success', 'Category Successfully Deleted');
     }
 }
