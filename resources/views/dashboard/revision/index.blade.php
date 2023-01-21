@@ -2,9 +2,19 @@
 @section('container')
 <div class="row">
   <div class="col">
-      <a href="#" class="btn btn-success"><i class="fas fa-plus"></i> Add Revision</a>
+      <a href="/revision/create" class="btn btn-success"><i class="fas fa-plus"></i> Add Revision</a>
   </div>
 </div>
+@if(session()->has('success'))
+<br>
+<div class="row">
+  <div class="col">
+    <div class="alert alert-success" role="alert">
+      {{ session('success') }}
+    </div>
+  </div>
+</div>
+@endif
 <br>
 <div class="row">
   <div class="col">
@@ -28,41 +38,32 @@
               <th>No</th>
               <th>Name</th>
               <th>Category</th>
-              <th>Description</th>
+              <th style="width: 40%">Description</th>
               <th>Status</th>
-              <th>Web Dev</th>
               <th>Created at</th>
               <th>Action</th>
             </tr>
             </thead>
+            @foreach ($admrevpend as $admpend)
             <tbody>
-            <tr>
-              <td>1.</td>
-              <td>Batikku.store</td>
-              <td>Info</td>
-              <td>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</td>
-              <td><span class="badge badge-warning">Pending</span></td>
-              <td>Kevin</td>
-              <td>22-07-2023</td>
-              <td>
-                <a href="#" class="btn btn-info btn-sm"><i class="fas fa-eye"></i> View</a>
-                <a href="#" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i> Delete</a>
-              </td>
-            </tr>
-            <tr>
-              <td>2.</td>
-              <td>Jeansku.store</td>
-              <td>Info Pro</td>
-              <td>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</td>
-              <td><span class="badge badge-warning">Pending</span></td>
-              <td>Adrian</td>
-              <td>22-07-2023</td>
-              <td>
-                <a href="#" class="btn btn-info btn-sm"><i class="fas fa-eye"></i> View</a>
-                <a href="#" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i> Delete</a>
-              </td>
-            </tr>
-            </tbody>
+              <tr>
+                <td>{{ $loop->iteration }}</td>
+                <td>{{ $admpend->name_project }}</td>
+                <td>{{ $admpend->category->name_category }}</td>
+                <td style="width: 40%; text-overflow: ellipsis">{{ $admpend->desc_revision }}</td>
+                <td><span class="badge badge-warning">Pending</span></td>
+                <td>{{ $admpend->created_at->diffForHumans() }}</td>
+                <td>
+                  <a href="/revision/{{ $admpend->id }}/edit" class="btn btn-info btn-sm"><i class="fas fa-eye"></i> View</a>
+                  <form action="/revision/{{ $admpend->id }}" method="POST" class="d-inline">
+                    @method('delete')
+                    @csrf
+                    <button type="submit" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i> Delete</button>
+                  </form>
+                </td>
+              </tr>
+              </tbody>
+            @endforeach
           </table>
         </div>
         <!-- /.table-responsive -->
@@ -100,7 +101,7 @@
               <th>No</th>
               <th>Name</th>
               <th>Category</th>
-              <th>Description</th>
+              <th style="width: 40%">Description</th>
               <th>Status</th>
               <th>Progress</th>
               <th>Web Dev</th>
@@ -108,36 +109,28 @@
               <th>Action</th>
             </tr>
             </thead>
+            @foreach ($admrevprog as $admprog)
             <tbody>
-            <tr>
-              <td>1.</td>
-              <td>Batikku.store</td>
-              <td>Info</td>
-              <td>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</td>
-              <td><span class="badge badge-info">In Progress</span></td>
-              <td>50%</td>
-              <td>Kevin</td>
-              <td>22-07-2023</td>
-              <td>
-                <a href="#" class="btn btn-info btn-sm"><i class="fas fa-eye"></i> View</a>
-                <a href="#" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i> Delete</a>
-              </td>
-            </tr>
-            <tr>
-              <td>2.</td>
-              <td>Jeansku.store</td>
-              <td>Info Pro</td>
-              <td>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</td>
-              <td><span class="badge badge-info">In Progress</span></td>
-              <td>75%</td>
-              <td>Adrian</td>
-              <td>22-07-2023</td>
-              <td>
-                <a href="#" class="btn btn-info btn-sm"><i class="fas fa-eye"></i> View</a>
-                <a href="#" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i> Delete</a>
-              </td>
-            </tr>
-            </tbody>
+              <tr>
+                <td>{{ $loop->iteration }}</td>
+                <td>{{ $admprog->name_project }}</td>
+                <td>{{ $admprog->category->name_category }}</td>
+                <td style="width: 40%">{{ $admprog->desc_revision }}</td>
+                <td><span class="badge badge-info">In Progress</span></td>
+                <td>{{ $admprog->progress }}</td>
+                <td>{{ $admprog->web_dev }}</td>
+                <td>{{ $admprog->created_at->diffForHumans() }}</td>
+                <td>
+                  <a href="/revision/{{ $admprog->id }}/edit" class="btn btn-info btn-sm"><i class="fas fa-eye"></i> View</a>
+                  <form action="/revision/{{ $admprog->id }}" method="POST" class="d-inline">
+                    @method('delete')
+                    @csrf
+                    <button type="submit" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i> Delete</button>
+                  </form>
+                </td>
+              </tr>
+              </tbody>
+            @endforeach
           </table>
         </div>
         <!-- /.table-responsive -->
@@ -183,36 +176,28 @@
               <th>Action</th>
             </tr>
             </thead>
+            @foreach ($admrevcomp as $admcomp)
             <tbody>
-            <tr>
-              <td>1.</td>
-              <td>Batikku.store</td>
-              <td>Info</td>
-              <td>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</td>
-              <td><span class="badge badge-success">Complete</span></td>
-              <td>100%</td>
-              <td>Kevin</td>
-              <td>22-07-2023</td>
-              <td>
-                <a href="#" class="btn btn-info btn-sm"><i class="fas fa-eye"></i> View</a>
-                <a href="#" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i> Delete</a>
-              </td>
-            </tr>
-            <tr>
-              <td>2.</td>
-              <td>Jeansku.store</td>
-              <td>Info Pro</td>
-              <td>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</td>
-              <td><span class="badge badge-success">Complete</span></td>
-              <td>100%</td>
-              <td>Adrian</td>
-              <td>22-07-2023</td>
-              <td>
-                <a href="#" class="btn btn-info btn-sm"><i class="fas fa-eye"></i> View</a>
-                <a href="#" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i> Delete</a>
-              </td>
-            </tr>
-            </tbody>
+              <tr>
+                <td>{{ $loop->iteration }}</td>
+                <td>{{ $admcomp->name_project }}</td>
+                <td>{{ $admcomp->category->name_category }}</td>
+                <td style="width: 40%">{{ $admcomp->desc_revision }}</td>
+                <td><span class="badge badge-success">Complete</span></td>
+                <td>{{ $admcomp->progress }}</td>
+                <td>{{ $admcomp->web_dev }}</td>
+                <td>{{ $admcomp->created_at->diffForHumans() }}</td>
+                <td>
+                  <a href="/revision/{{ $admcomp->id }}/edit" class="btn btn-info btn-sm"><i class="fas fa-eye"></i> View</a>
+                  <form action="/revision/{{ $admcomp->id }}" method="POST" class="d-inline">
+                    @method('delete')
+                    @csrf
+                    <button type="submit" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i> Delete</button>
+                  </form>
+                </td>
+              </tr>
+              </tbody>
+            @endforeach
           </table>
         </div>
         <!-- /.table-responsive -->

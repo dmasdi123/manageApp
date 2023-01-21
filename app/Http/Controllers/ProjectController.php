@@ -16,7 +16,7 @@ class ProjectController extends Controller
      */
     public function index()
     {
-        $webdevcharge = auth()->user()->name;
+        $devname = auth()->user()->name;
         return view('dashboard.project.index', [
             'title' => 'Dashboard Projects',
             'admprojpend' => Project::where('status', 'Pending')->get(),
@@ -78,7 +78,7 @@ class ProjectController extends Controller
      * @param  \App\Models\Project  $project
      * @return \Illuminate\Http\Response
      */
-    public function edit(Project $project, Categories $category)
+    public function edit(Project $project)
     {
         return view('dashboard.project.edit', [
             'title' => 'Project Edit Form',

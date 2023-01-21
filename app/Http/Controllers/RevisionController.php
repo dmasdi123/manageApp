@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use App\Models\Revision;
+use App\Models\Categories;
 use Illuminate\Http\Request;
 
 class RevisionController extends Controller
@@ -15,7 +17,10 @@ class RevisionController extends Controller
     public function index()
     {
         return view('dashboard.revision.index', [
-            'title' => 'Dashboard Revisions'
+            'title' => 'Dashboard Revisions',
+            'admrevpend' => Revision::where('status', 'Pending')->get(),
+            'admrevprog' => Revision::where('status', 'In Progress')->get(),
+            'admrevcomp' => Revision::where('status', 'Complete')->get()
         ]);
     }
 
@@ -26,7 +31,11 @@ class RevisionController extends Controller
      */
     public function create()
     {
-        //
+        return view('dashboard.revision.create', [
+            'title' => 'Create Revision Form',
+            'categories' => Categories::all(),
+            'webdevinfo' => User::where('role', 'Web Developer')->get()
+        ]);
     }
 
     /**
@@ -37,7 +46,18 @@ class RevisionController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validatedData = $request->validate([
+            'user_id' => 'required',
+            'category_id' => 'required',
+            'name_project' => 'required',
+            'desc_revision' => 'required',
+            'status' => 'required',
+            'progress' => 'required',
+            'web_dev' => 'required'
+        ]);
+
+        Revision::create($validatedData);
+        return redirect('/revision')->with('success', 'Revision Successfully Created');
     }
 
     /**
@@ -59,7 +79,12 @@ class RevisionController extends Controller
      */
     public function edit(Revision $revision)
     {
-        //
+        return view('dashboard.revision.edit', [
+            'title' => 'Revision Edit Form',
+            'revision' => $revision,
+            'categories' => Categories::all(),
+            'webdevinfo' => User::where('role', 'Web Developer')->get()
+        ]);
     }
 
     /**
@@ -71,7 +96,19 @@ class RevisionController extends Controller
      */
     public function update(Request $request, Revision $revision)
     {
-        //
+        $rules = [
+            'user_id' => 'required',
+            'category_id' => 'required',
+            'name_project' => 'required',
+            'desc_revision' => 'required',
+            'status' => 'required',
+            'progress' => 'required'
+        ];
+
+        $validatedData = $request->validate($rules);
+        Revision::where('id', $revision->id)
+            ->update($validatedData);
+        return redirect('/revision')->with('success', 'Revision Updated Successfully');
     }
 
     /**
@@ -82,6 +119,7 @@ class RevisionController extends Controller
      */
     public function destroy(Revision $revision)
     {
-        //
+        Revision::destroy($revision->id);
+        return redirect('/revision')->with('success', 'Revision Successfully Deleted');
     }
 }
