@@ -245,7 +245,7 @@
               <th>Action</th>
             </tr>
             </thead>
-            @foreach ($devrevprog as $devprog)
+            @foreach ($devprojprog as $devprog)
             <tbody>
               <tr>
                 <td>{{ $loop->iteration }}</td>

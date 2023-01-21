@@ -16,11 +16,18 @@ class ReportController extends Controller
      */
     public function index()
     {
+        $devname = auth()->user()->name;
         return view('dashboard.report.index', [
             'title' => 'Dashboard Reports',
             'admreppend' => Report::where('status', 'Pending')->get(),
             'admrepprog' => Report::where('status', 'In Progress')->get(),
-            'admrepcomp' => Report::where('status', 'Complete')->get()
+            'admrepcomp' => Report::where('status', 'Complete')->get(),
+            'devrepprog' => Report::where('status', 'In Progress')->where(function ($query) use ($devname) {
+                $query->where('web_dev', $devname);
+            })->get(),
+            'devrepcomp' => Report::where('status', 'Complete')->where(function ($query) use ($devname) {
+                $query->where('web_dev', $devname);
+            })->get()
         ]);
     }
 
