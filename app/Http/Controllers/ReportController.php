@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use App\Models\Report;
+use App\Models\Categories;
 use Illuminate\Http\Request;
 
 class ReportController extends Controller
@@ -15,7 +17,10 @@ class ReportController extends Controller
     public function index()
     {
         return view('dashboard.report.index', [
-            'title' => 'Dashboard Reports'
+            'title' => 'Dashboard Reports',
+            'admreppend' => Report::where('status', 'Pending')->get(),
+            'admrepprog' => Report::where('status', 'In Progress')->get(),
+            'admrepcomp' => Report::where('status', 'Complete')->get()
         ]);
     }
 
@@ -26,7 +31,11 @@ class ReportController extends Controller
      */
     public function create()
     {
-        //
+        return view('dashboard.report.create', [
+            'title' => 'Create Report Form',
+            'categories' => Categories::all(),
+            'webdevinfo' => User::where('role', 'Web Developer')->get()
+        ]);
     }
 
     /**
@@ -37,7 +46,18 @@ class ReportController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validatedData = $request->validate([
+            'user_id' => 'required',
+            'category_id' => 'required',
+            'name_project' => 'required',
+            'desc_report' => 'required',
+            'status' => 'required',
+            'progress' => 'required',
+            'web_dev' => 'required'
+        ]);
+
+        Report::create($validatedData);
+        return redirect('/report')->with('success', 'Report Successfully Created');
     }
 
     /**
@@ -59,7 +79,12 @@ class ReportController extends Controller
      */
     public function edit(Report $report)
     {
-        //
+        return view('dashboard.report.edit', [
+            'title' => 'Report Edit Form',
+            'report' => $report,
+            'categories' => Categories::all(),
+            'webdevinfo' => User::where('role', 'Web Developer')->get()
+        ]);
     }
 
     /**
@@ -71,7 +96,19 @@ class ReportController extends Controller
      */
     public function update(Request $request, Report $report)
     {
-        //
+        $rules = [
+            'user_id' => 'required',
+            'category_id' => 'required',
+            'name_project' => 'required',
+            'desc_report' => 'required',
+            'status' => 'required',
+            'progress' => 'required'
+        ];
+
+        $validatedData = $request->validate($rules);
+        Report::where('id', $report->id)
+            ->update($validatedData);
+        return redirect('/report')->with('success', 'Report Updated Successfully');
     }
 
     /**
@@ -82,6 +119,7 @@ class ReportController extends Controller
      */
     public function destroy(Report $report)
     {
-        //
+        Report::destroy($report->id);
+        return redirect('/report')->with('success', 'Report Successfully Deleted');
     }
 }
