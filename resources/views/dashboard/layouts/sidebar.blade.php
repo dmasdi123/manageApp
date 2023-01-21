@@ -1,17 +1,22 @@
   <!-- Main Sidebar Container -->
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
-    <a href="index3.html" class="brand-link">
+    <p class="brand-link">
       <img src="/dist/img/webcare.png" alt="AdminLTE Logo" class="brand-image img-circle" style="opacity: .8">
       <span class="brand-text font-weight-light">Webcare</span>
-    </a>
+    </>
 
     <!-- Sidebar -->
     <div class="sidebar">
       <!-- Sidebar user panel (optional) -->
+      <div class="user-panel mt-3 pb-1 mb-1 d-flex">
+        <div class="info">
+          <p class="d-block">{{ auth()->user()->name }}</p>
+        </div>
+      </div>
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
         <div class="info">
-          <a class="d-block">{{ auth()->user()->name }}</a>
+          <a href="/homepage" class="d-block">Dashboard</a>
         </div>
       </div>
 

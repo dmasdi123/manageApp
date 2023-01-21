@@ -88,14 +88,14 @@ class CategoriesController extends Controller
     {
         $rules = [
             'user_id' => 'required',
-            'email' => 'required',
-            'password' => 'required'
+            'name_category' => 'required',
+            'desc_category' => 'required'
         ];
 
         $validatedData = $request->validate($rules);
-        User::where('id', $category->id)
+        Categories::where('id', $category->id)
             ->update($validatedData);
-        return redirect('/user')->with('success', 'User Updated Successfully');
+        return redirect('/categories')->with('success', 'User Successfully Updated');
     }
 
     /**

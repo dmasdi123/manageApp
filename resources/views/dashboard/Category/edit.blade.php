@@ -13,8 +13,8 @@
                     @method('put')
                     @csrf
                     <div class="card-body">
-                      <input type="hidden" name="user_id" value="{{ $category->user_id }}">
                       <div class="form-group row">
+                        <input type="hidden" name="user_id" value="{{ $category->user_id }}">
                         <label class="col-sm-2 col-form-label">Category</label>
                         <div class="col-sm-10">
                           <input type="text" name="name_category" class="form-control" value="{{ $category->name_category }}">
@@ -29,7 +29,7 @@
                     </div>
                     <!-- /.card-body -->
                     <div class="card-footer text-center">
-                      <button type="submit" class="btn btn-success">Add New Category</a>
+                      <button type="submit" class="btn btn-success">Save Changes</a>
                     </div>
                     <!-- /.card-footer -->
                   </form>

@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use App\Models\Project;
+use App\Models\Categories;
 use Illuminate\Http\Request;
 
 class ProjectController extends Controller
@@ -14,8 +16,12 @@ class ProjectController extends Controller
      */
     public function index()
     {
+        $webdevcharge = auth()->user()->name;
         return view('dashboard.project.index', [
-            'title' => 'Dashboard Projects'
+            'title' => 'Dashboard Projects',
+            'admprojpend' => Project::where('status', 'Pending')->get(),
+            'admprojprog' => Project::where('status', 'In Progress')->get(),
+            'admprojcomp' => Project::where('status', 'Complete')->get()
         ]);
     }
 
@@ -26,7 +32,11 @@ class ProjectController extends Controller
      */
     public function create()
     {
-        //
+        return view('dashboard.project.create', [
+            'title' => 'Create Project Form',
+            'categories' => Categories::all(),
+            'webdevinfo' => User::where('role', 'Web Developer')->get()
+        ]);
     }
 
     /**
@@ -37,7 +47,18 @@ class ProjectController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validatedData = $request->validate([
+            'user_id' => 'required',
+            'category_id' => 'required',
+            'name_project' => 'required',
+            'desc_project' => 'required',
+            'status' => 'required',
+            'progress' => 'required',
+            'web_dev' => 'required'
+        ]);
+
+        Project::create($validatedData);
+        return redirect('/project')->with('success', 'Project Successfully Created');
     }
 
     /**
@@ -57,9 +78,14 @@ class ProjectController extends Controller
      * @param  \App\Models\Project  $project
      * @return \Illuminate\Http\Response
      */
-    public function edit(Project $project)
+    public function edit(Project $project, Categories $category)
     {
-        //
+        return view('dashboard.project.edit', [
+            'title' => 'Project Edit Form',
+            'project' => $project,
+            'categories' => Categories::all(),
+            'webdevinfo' => User::where('role', 'Web Developer')->get()
+        ]);
     }
 
     /**
@@ -71,7 +97,19 @@ class ProjectController extends Controller
      */
     public function update(Request $request, Project $project)
     {
-        //
+        $rules = [
+            'user_id' => 'required',
+            'category_id' => 'required',
+            'name_project' => 'required',
+            'desc_project' => 'required',
+            'status' => 'required',
+            'progress' => 'required'
+        ];
+
+        $validatedData = $request->validate($rules);
+        Project::where('id', $project->id)
+            ->update($validatedData);
+        return redirect('/project')->with('success', 'Project Updated Successfully');
     }
 
     /**
@@ -82,6 +120,7 @@ class ProjectController extends Controller
      */
     public function destroy(Project $project)
     {
-        //
+        Project::destroy($project->id);
+        return redirect('/project')->with('success', 'Project Successfully Deleted');
     }
 }
