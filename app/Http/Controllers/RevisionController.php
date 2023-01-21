@@ -16,11 +16,18 @@ class RevisionController extends Controller
      */
     public function index()
     {
+        $devname = auth()->user()->name;
         return view('dashboard.revision.index', [
             'title' => 'Dashboard Revisions',
             'admrevpend' => Revision::where('status', 'Pending')->get(),
             'admrevprog' => Revision::where('status', 'In Progress')->get(),
-            'admrevcomp' => Revision::where('status', 'Complete')->get()
+            'admrevcomp' => Revision::where('status', 'Complete')->get(),
+            'devrevprog' => Revision::where('status', 'In Progress')->where(function ($query) use ($devname) {
+                $query->where('web_dev', $devname);
+            })->get(),
+            'devrevcomp' => Revision::where('status', 'Complete')->where(function ($query) use ($devname) {
+                $query->where('web_dev', $devname);
+            })->get()
         ]);
     }
 

@@ -21,7 +21,13 @@ class ProjectController extends Controller
             'title' => 'Dashboard Projects',
             'admprojpend' => Project::where('status', 'Pending')->get(),
             'admprojprog' => Project::where('status', 'In Progress')->get(),
-            'admprojcomp' => Project::where('status', 'Complete')->get()
+            'admprojcomp' => Project::where('status', 'Complete')->get(),
+            'devprojprog' => Project::where('status', 'In Progress')->where(function ($query) use ($devname) {
+                $query->where('web_dev', $devname);
+            })->get(),
+            'devprojcomp' => Project::where('status', 'Complete')->where(function ($query) use ($devname) {
+                $query->where('web_dev', $devname);
+            })->get()
         ]);
     }
 
