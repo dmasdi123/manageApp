@@ -29,6 +29,7 @@ class CategoriesController extends Controller
      */
     public function create()
     {
+        $this->authorize('admin');
         return view('dashboard.category.create', [
             'title' => 'Category Form'
         ]);
@@ -71,6 +72,7 @@ class CategoriesController extends Controller
      */
     public function edit(Categories $category)
     {
+        $this->authorize('admin');
         return view('dashboard.category.edit', [
             'title' => 'Edit Categories Form',
             'category' => $category

@@ -27,7 +27,7 @@
                with font-awesome or any other icon font library -->
           <li class="nav-header">Task</li>
           <li class="nav-item">
-            <a href="/project" class="nav-link">
+            <a href="/project" class="nav-link {{ Request::is('project') ? 'active' : '' }}">
               <i class="nav-icon fas fa-copy"></i>
               <p>
                 Projects
@@ -35,7 +35,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="/revision" class="nav-link">
+            <a href="/revision" class="nav-link {{ Request::is('revision') ? 'active' : '' }}">
               <i class="nav-icon fas fa-copy"></i>
               <p>
                 Revisions
@@ -43,7 +43,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="/report" class="nav-link">
+            <a href="/report" class="nav-link {{ Request::is('report') ? 'active' : '' }}">
               <i class="nav-icon fas fa-copy"></i>
               <p>
                 Reports
@@ -52,21 +52,23 @@
           </li>
           <li class="nav-header">Others</li>
           <li class="nav-item">
-            <a href="/categories" class="nav-link">
+            <a href="/categories" class="nav-link {{ Request::is('categories') ? 'active' : '' }}">
               <i class="nav-icon fas fa-table"></i>
               <p>
                 Categories
               </p>
             </a>
           </li>
+          @can('admin')
           <li class="nav-item">
-            <a href="/user" class="nav-link">
+            <a href="/user" class="nav-link {{ Request::is('user') ? 'active' : '' }}">
               <i class="nav-icon fas fa-users"></i>
               <p>
                 Users
               </p>
             </a>
           </li>
+          @endcan
         </ul>
       </nav>
       <!-- /.sidebar-menu -->

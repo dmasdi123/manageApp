@@ -24,14 +24,16 @@
           <h1 class="card-title badge badge-info p-3">{{ $cat->name_category }}</h1>
           <br>
           <p class="card-text">{{ $cat->desc_category }}</p>
-            <div class="text-center">
-                <a href="/categories/{{ $cat->id }}/edit" class="btn btn-info btn-sm"><i class="fas fa-eye"></i> View</a>
-                <form action="/categories/{{ $cat->id }}" method="POST" class="d-inline">
-                  @method('delete')
-                  @csrf
-                  <button type="submit" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i> Delete</button>
-                </form>
-            </div>
+          @can('admin')
+          <div class="text-center">
+            <a href="/categories/{{ $cat->id }}/edit" class="btn btn-info btn-sm"><i class="fas fa-eye"></i> View</a>
+            <form action="/categories/{{ $cat->id }}" method="POST" class="d-inline">
+              @method('delete')
+              @csrf
+              <button type="submit" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i> Delete</button>
+            </form>
+        </div>
+          @endcan
         </div>
       </div>
     </div>

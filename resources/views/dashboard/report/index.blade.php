@@ -1,10 +1,12 @@
 @extends('dashboard.layouts.main')
 @section('container')
+@can('admin')
 <div class="row">
   <div class="col">
       <a href="/report/create" class="btn btn-success"><i class="fas fa-plus"></i> Add Report</a>
   </div>
 </div>
+@endcan
 @if(session()->has('success'))
 <br>
 <div class="row">
@@ -79,6 +81,7 @@
 </div>
 <br>
 <br>
+@can('admin')
 <div class="row">
   <div class="col">
     <!-- TABLE -->
@@ -211,10 +214,12 @@
     <!-- /.card -->
   </div>
 </div>
+@endcan
 <br>
 <br>
 
-{{-- web dev section --}}
+@can('webdev')
+    {{-- web dev section --}}
 <div class="row">
   <div class="col">
     <!-- TABLE -->
@@ -347,5 +352,6 @@
     <!-- /.card -->
   </div>
 </div>
+@endcan
   
 @endsection

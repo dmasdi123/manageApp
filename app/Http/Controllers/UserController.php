@@ -28,6 +28,7 @@ class UserController extends Controller
      */
     public function create()
     {
+        $this->authorize('admin');
         return view('dashboard.user.create', [
             'title' => 'Create User'
         ]);
@@ -78,6 +79,7 @@ class UserController extends Controller
      */
     public function edit(User $user)
     {
+        $this->authorize('admin');
         return view('dashboard.user.edit', [
             'title' => 'Edit User',
             'user' => $user

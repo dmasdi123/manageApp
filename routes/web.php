@@ -22,17 +22,17 @@ use App\Http\Controllers\RevisionController;
 
 Route::get('/', function () {
     return view('dashboard.login.index');
-});
+})->name('login');
 
 Route::post('/login', [LoginController::class, 'authenticate']);
 Route::post('/logout', [LoginController::class, 'logout']);
 // Route::post('/login', 'App\Http\Controllers\LoginController@authenticate');
 
-Route::resource('/user', UserController::class);
+Route::resource('/user', UserController::class)->except('show');
 
 Route::get('/homepage', [HomeController::class, 'index']);
-Route::resource('/project', ProjectController::class);
-Route::resource('/revision', RevisionController::class);
-Route::resource('/report', ReportController::class);
+Route::resource('/project', ProjectController::class)->except('show');
+Route::resource('/revision', RevisionController::class)->except('show');
+Route::resource('/report', ReportController::class)->except('show');
 
-Route::resource('/categories', CategoriesController::class);
+Route::resource('/categories', CategoriesController::class)->except('show');
