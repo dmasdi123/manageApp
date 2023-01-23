@@ -1,10 +1,12 @@
 @extends('dashboard.layouts.main')
 @section('container')
+@can('admin')
 <div class="row">
   <div class="col">
       <a href="/categories/create" class="btn btn-success"><i class="fas fa-plus"></i> Add New Category</a>
   </div>
 </div>
+@endcan
 @if(session()->has('success'))
 <br>
 <div class="row">

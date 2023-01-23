@@ -19,6 +19,7 @@ class ProjectController extends Controller
         $devname = auth()->user()->name;
         return view('dashboard.project.index', [
             'title' => 'Dashboard Projects',
+            // 'admprojpend' => Project::where('status', 'Pending')->paginate(2),
             'admprojpend' => Project::where('status', 'Pending')->get(),
             'admprojprog' => Project::where('status', 'In Progress')->get(),
             'admprojcomp' => Project::where('status', 'Complete')->get(),

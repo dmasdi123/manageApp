@@ -73,6 +73,7 @@
       <!-- /.card-body -->
       <div class="card-footer clearfix">
         <br>
+        {{-- {{ $admprojpend->links() }} --}}
       </div>
       <!-- /.card-footer -->
     </div>
@@ -141,6 +142,7 @@
       <!-- /.card-body -->
       <div class="card-footer clearfix">
         <br>
+        {{-- {{ $admproj->links() }} --}}
       </div>
       <!-- /.card-footer -->
     </div>
@@ -208,6 +210,7 @@
       <!-- /.card-body -->
       <div class="card-footer clearfix">
         <br>
+        {{-- {{ $admprojcomp->links() }} --}}
       </div>
       <!-- /.card-footer -->
     </div>
