@@ -70,7 +70,7 @@
                       <div class="form-group row">
                         <label for="inputPassword3" class="col-sm-2 col-form-label">Project Description</label>
                         <div class="col-sm-10">
-                          <input type="text" name="desc_project" class="form-control" value="{{ $project->desc_project }}">
+                          <textarea name="desc_project" class="form-control" cols="20" rows="10" value="{{ $project->desc_project }}">{{ $project->desc_project }}</textarea>
                         </div>
                       </div>
                     </div>
@@ -152,7 +152,7 @@
                       <div class="form-group row">
                         <label for="inputPassword3" class="col-sm-2 col-form-label">Project Description</label>
                         <div class="col-sm-10">
-                          <input type="text" name="desc_project" class="form-control" value="{{ $project->desc_project }}">
+                          <textarea name="desc_project" class="form-control" cols="20" rows="10" value="{{ $project->desc_project }}">{{ $project->desc_project }}</textarea>
                         </div>
                       </div>
                     </div>

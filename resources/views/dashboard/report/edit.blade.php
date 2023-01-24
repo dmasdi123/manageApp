@@ -152,7 +152,7 @@
                       <div class="form-group row">
                         <label for="inputPassword3" class="col-sm-2 col-form-label">Report Description</label>
                         <div class="col-sm-10">
-                          <input type="text" name="desc_report" class="form-control" value="{{ $report->desc_report }}">
+                          <textarea name="desc_report" class="form-control" cols="20" rows="10" value="{{ $report->desc_report }}">{{ $report->desc_report }}</textarea>
                         </div>
                       </div>
                     </div>

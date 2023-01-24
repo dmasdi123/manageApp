@@ -30,12 +30,6 @@
                         </div>
                       </div>
                       <div class="form-group row">
-                        <label for="inputPassword3" class="col-sm-2 col-form-label">Revision Description</label>
-                        <div class="col-sm-10">
-                          <input type="text" name="desc_revision" class="form-control" placeholder="Revision Descriptions">
-                        </div>
-                      </div>
-                      <div class="form-group row">
                         <label class="col-sm-2 col-form-label">Status</label>
                         <div class="col-sm-10">
                           <select class="custom-select rounded-0" name="status">
@@ -67,10 +61,16 @@
                           </select>
                         </div>
                       </div>
+                      <div class="form-group row">
+                        <label for="inputPassword3" class="col-sm-2 col-form-label">Revision Description</label>
+                        <div class="col-sm-10">
+                          <textarea name="desc_revision" class="form-control" cols="20" rows="10" value="{{ $revision->desc_revision }}">{{ $revision->desc_revision }}</textarea>
+                        </div>
+                      </div>
                     </div>
                     <!-- /.card-body -->
                     <div class="card-footer text-center">
-                      <button type="submit" class="btn btn-success">Add New User</a>
+                      <button type="submit" class="btn btn-success">Add New Revision</a>
                     </div>
                     <!-- /.card-footer -->
                   </form>

@@ -22,7 +22,7 @@
                       <div class="form-group row">
                         <label for="inputPassword3" class="col-sm-2 col-form-label">Descriptions</label>
                         <div class="col-sm-10">
-                          <input type="text" name="desc_category" class="form-control" placeholder="Descriptions">
+                          <textarea name="desc_category" cols="30" rows="10" class="form-control" placeholder="Descriptions"></textarea>
                         </div>
                       </div>
                     </div>

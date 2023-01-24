@@ -30,12 +30,6 @@
                         </div>
                       </div>
                       <div class="form-group row">
-                        <label for="inputPassword3" class="col-sm-2 col-form-label">Project Description</label>
-                        <div class="col-sm-10">
-                          <input type="text" name="desc_project" class="form-control" placeholder="Project Descriptions">
-                        </div>
-                      </div>
-                      <div class="form-group row">
                         <label class="col-sm-2 col-form-label">Status</label>
                         <div class="col-sm-10">
                           <select class="custom-select rounded-0" name="status">
@@ -67,10 +61,16 @@
                           </select>
                         </div>
                       </div>
+                      <div class="form-group row">
+                        <label for="inputPassword3" class="col-sm-2 col-form-label">Project Description</label>
+                        <div class="col-sm-10">
+                          <textarea name="desc_project" cols="20" rows="10" class="form-control" placeholder="Project Descriptions"></textarea>
+                        </div>
+                      </div>
                     </div>
                     <!-- /.card-body -->
                     <div class="card-footer text-center">
-                      <button type="submit" class="btn btn-success">Add New User</a>
+                      <button type="submit" class="btn btn-success">Add New Project</a>
                     </div>
                     <!-- /.card-footer -->
                   </form>

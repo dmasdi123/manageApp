@@ -23,7 +23,7 @@
                       <div class="form-group row">
                         <label for="inputPassword3" class="col-sm-2 col-form-label">Descriptions</label>
                         <div class="col-sm-10">
-                          <input type="text" name="desc_category" class="form-control" value="{{ $category->desc_category }}">
+                          <textarea name="desc_category" cols="30" rows="10" class="form-control" placeholder="Descriptions" value="{{ $category->desc_category }}">{{ $category->desc_category }}</textarea>
                         </div>
                       </div>
                     </div>
