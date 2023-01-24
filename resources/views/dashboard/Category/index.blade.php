@@ -23,7 +23,7 @@
     <div class="col-sm-6">
       <div class="card">
         <div class="card-body">
-          <h1 class="card-title badge badge-info p-3">{{ $cat->name_category }}</h1>
+          <h1 class="card-title badge badge-info mb-3 p-3">{{ $cat->name_category }}</h1>
           <br>
           <p class="card-text">{{ $cat->desc_category }}</p>
           @can('admin')

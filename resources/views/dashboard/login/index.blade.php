@@ -97,7 +97,11 @@
       </div>
     @endif
     {{-- <img class="mb-4" src="https://source.unsplash.com/650x400?login" alt=""> --}}
-    <h1 class="h3 mb-3 fw-normal text-center">Please login in</h1>    
+    <div>
+      <img src="/dist/img/webcare.png" class="justify-content-center">
+    </div>
+    <br>
+    {{-- <h1 class="h3 mb-3 fw-normal text-center">Webcareidn</h1>     --}}
     <div class="form-floating">
       <input type="email" name="email" class="form-control @error('email') is-invalid @enderror" id="email" placeholder="name@example.com" value="{{ old('email') }}" autofocus required>
       <label for="email">Email address</label>
