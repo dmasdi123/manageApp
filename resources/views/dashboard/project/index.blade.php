@@ -210,7 +210,7 @@
       <!-- /.card-body -->
       <div class="card-footer clearfix text-right">
         <br>
-        <a href="/projectcomp" class="btn btn-info">Print Out</a>
+        <a href="/projectcomp" target=”_blank” class="btn btn-info">Print Out</a>
         {{-- {{ $admprojcomp->links() }} --}}
       </div>
       <!-- /.card-footer -->

@@ -208,7 +208,7 @@
       <!-- /.card-body -->
       <div class="card-footer clearfix text-right">
         <br>
-        <a href="/reportcomp" class="btn btn-info">Print Out</a>
+        <a href="/reportcomp" target=”_blank” class="btn btn-info">Print Out</a>
       </div>
       <!-- /.card-footer -->
     </div>
