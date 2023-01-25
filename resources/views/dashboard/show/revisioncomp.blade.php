@@ -30,17 +30,21 @@
                     <th scope="col">Description</th>
                     <th scope="col">Status</th>
                     <th scope="col">Web Dev</th>
+                    <th scope="col">Created At</th>
+                    <th scope="col">Resolved</th>
                   </tr>
                 </thead>
                 @foreach ($revcomps as $data)
                 <tbody>
                     <tr>
                       <th scope="row">{{ $loop->iteration }}</th>
-                      <td>{{ $data->name_revision }}</td>
+                      <td>{{ $data->name_project }}</td>
                       <td>{{ $data->category->name_category }}</td>
                       <td style="width: 40%">{{ $data->desc_revision }}</td>
                       <td>{{ $data->status }}</td>
                       <td>{{ $data->web_dev }}</td>
+                      <td>{{ $data->created_at }}</td>
+                      <td>{{ $data->updated_at }}</td>
                     </tr>
                   </tbody>
                 @endforeach
