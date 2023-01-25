@@ -208,8 +208,9 @@
         <!-- /.table-responsive -->
       </div>
       <!-- /.card-body -->
-      <div class="card-footer clearfix">
+      <div class="card-footer clearfix text-right">
         <br>
+        <a href="/projectcomp" class="btn btn-info">Print Out</a>
         {{-- {{ $admprojcomp->links() }} --}}
       </div>
       <!-- /.card-footer -->

@@ -31,6 +31,10 @@ Route::post('/logout', [LoginController::class, 'logout']);
 Route::resource('/user', UserController::class)->except('show');
 
 Route::get('/homepage', [HomeController::class, 'index']);
+Route::get('/projectcomp', [HomeController::class, 'showprojcomp']);
+Route::get('/revisioncomp', [HomeController::class, 'showrevcomp']);
+Route::get('/reportcomp', [HomeController::class, 'showrepcomp']);
+
 Route::resource('/project', ProjectController::class)->except('show');
 Route::resource('/revision', RevisionController::class)->except('show');
 Route::resource('/report', ReportController::class)->except('show');

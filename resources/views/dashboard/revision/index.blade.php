@@ -206,8 +206,9 @@
         <!-- /.table-responsive -->
       </div>
       <!-- /.card-body -->
-      <div class="card-footer clearfix">
+      <div class="card-footer clearfix text-right">
         <br>
+        <a href="/revisioncomp" class="btn btn-info">Print Out</a>
       </div>
       <!-- /.card-footer -->
     </div>

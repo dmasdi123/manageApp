@@ -34,4 +34,25 @@ class HomeController extends Controller
             'totaldev' => User::where('role', 'Web Developer')->count()
         ]);
     }
+
+    function showprojcomp()
+    {
+        return view('dashboard.show.projectcomp', [
+            'projcomps' => Project::where('status', 'Complete')->get()
+        ]);
+    }
+
+    function showrevcomp()
+    {
+        return view('dashboard.show.revisioncomp', [
+            'revcomps' => Revision::where('status', 'Complete')->get()
+        ]);
+    }
+
+    function showrepcomp()
+    {
+        return view('dashboard.show.reportcomp', [
+            'repcomps' => Report::where('status', 'Complete')->get()
+        ]);
+    }
 }
