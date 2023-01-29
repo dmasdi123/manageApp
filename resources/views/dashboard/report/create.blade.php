@@ -64,7 +64,7 @@
                       <div class="form-group row">
                         <label for="inputPassword3" class="col-sm-2 col-form-label">Report Description</label>
                         <div class="col-sm-10">
-                          <textarea name="desc_report" class="form-control" cols="20" rows="10" value="{{ $report->desc_report }}">{{ $report->desc_report }}</textarea>
+                          <textarea name="desc_report" class="form-control" cols="20" rows="10"></textarea>
                         </div>
                       </div>
                     </div>

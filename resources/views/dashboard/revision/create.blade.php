@@ -64,7 +64,7 @@
                       <div class="form-group row">
                         <label for="inputPassword3" class="col-sm-2 col-form-label">Revision Description</label>
                         <div class="col-sm-10">
-                          <textarea name="desc_revision" class="form-control" cols="20" rows="10" value="{{ $revision->desc_revision }}">{{ $revision->desc_revision }}</textarea>
+                          <textarea name="desc_revision" class="form-control" cols="20" rows="10"></textarea>
                         </div>
                       </div>
                     </div>
