@@ -55,14 +55,16 @@
                 <td style="width: 40%; text-overflow: ellipsis">{{ $admpend->desc_project }}</td>
                 <td><span class="badge badge-warning">Pending</span></td>
                 <td>{{ $admpend->created_at->diffForHumans() }}</td>
+                @can('admin')
                 <td>
-                  <a href="/project/{{ $admpend->id }}/edit" class="btn btn-info btn-sm"><i class="fas fa-eye"></i> View</a>
-                  <form action="/project/{{ $admpend->id }}" method="POST" class="d-inline">
+                  <a href="/report/{{ $admpend->id }}/edit" class="btn btn-info btn-sm"><i class="fas fa-eye"></i> View</a>
+                  <form action="/report/{{ $admpend->id }}" method="POST" class="d-inline">
                     @method('delete')
                     @csrf
                     <button type="submit" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i> Delete</button>
                   </form>
                 </td>
+                @endcan
               </tr>
               </tbody>
             @endforeach
