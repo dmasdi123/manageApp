@@ -55,16 +55,16 @@
                 <td style="width: 40%; text-overflow: ellipsis">{{ $admpend->desc_project }}</td>
                 <td><span class="badge badge-warning">Pending</span></td>
                 <td>{{ $admpend->created_at->diffForHumans() }}</td>
-                @can('admin')
                 <td>
-                  <a href="/report/{{ $admpend->id }}/edit" class="btn btn-info btn-sm"><i class="fas fa-eye"></i> View</a>
-                  <form action="/report/{{ $admpend->id }}" method="POST" class="d-inline">
+                  <a href="/project/{{ $admpend->id }}/edit" class="btn btn-info btn-sm"><i class="fas fa-eye"></i> View</a>
+                  @can('admin')
+                  <form action="/project/{{ $admpend->id }}" method="POST" class="d-inline">
                     @method('delete')
                     @csrf
                     <button type="submit" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i> Delete</button>
                   </form>
+                  @endcan
                 </td>
-                @endcan
               </tr>
               </tbody>
             @endforeach
@@ -336,11 +336,13 @@
                 <td>{{ $devcomp->created_at->diffForHumans() }}</td>
                 <td>
                   <a href="/project/{{ $devcomp->id }}/edit" class="btn btn-info btn-sm"><i class="fas fa-eye"></i> View</a>
+                  @can('admin')
                   <form action="/project/{{ $devcomp->id }}" method="POST" class="d-inline">
                     @method('delete')
                     @csrf
                     <button type="submit" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i> Delete</button>
                   </form>
+                  @endcan
                 </td>
               </tr>
               </tbody>

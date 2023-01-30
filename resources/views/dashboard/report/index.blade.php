@@ -55,16 +55,16 @@
                 <td style="width: 40%">{{ $admpend->desc_report }}</td>
                 <td><span class="badge badge-warning">Pending</span></td>
                 <td>{{ $admpend->created_at->diffForHumans() }}</td>
-                @can('admin')
                 <td>
                   <a href="/report/{{ $admpend->id }}/edit" class="btn btn-info btn-sm"><i class="fas fa-eye"></i> View</a>
+                  @can('admin')
                   <form action="/report/{{ $admpend->id }}" method="POST" class="d-inline">
                     @method('delete')
                     @csrf
                     <button type="submit" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i> Delete</button>
                   </form>
+                  @endcan
                 </td>
-                @endcan
               </tr>
               </tbody>
             @endforeach
@@ -333,11 +333,13 @@
                 <td>{{ $devcomp->created_at->diffForHumans() }}</td>
                 <td>
                   <a href="/report/{{ $devcomp->id }}/edit" class="btn btn-info btn-sm"><i class="fas fa-eye"></i> View</a>
+                  @can('admin')
                   <form action="/report/{{ $devcomp->id }}" method="POST" class="d-inline">
                     @method('delete')
                     @csrf
                     <button type="submit" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i> Delete</button>
                   </form>
+                  @endcan
                 </td>
               </tr>
               </tbody>
